@@ -1,13 +1,15 @@
 {
   "name": "c-addon-test",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "npm install && node-gyp build",
+    "test": "node index.js"
   },
   "main": "index.js",
   "author": "electrovir",
   "private": true,
   "dependencies": {
     "bindings": "^1.5.0",
-    "node-addon-api": "^2.0.0"
+    "node-addon-api": "^2.0.0",
+    "node-gyp": "^6.0.1"
   }
 }
