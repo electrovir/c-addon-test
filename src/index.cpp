@@ -15,9 +15,7 @@
 
 #include "greeting.h"
 extern "C" {
-#include "my-thing.h"
 #include "pcm.h"
-#include "ws281x-main.h"
 #include "clk.h"
 #include "gpio.h"
 #include "dma.h"
@@ -39,7 +37,7 @@ Napi::String greetHello(const Napi::CallbackInfo& info) {
 
 Napi::String test(const Napi::CallbackInfo& info) {
     printf("%d.%d.%d\n", VERSION_MAJOR, VERSION_MINOR, VERSION_MICRO);
-    std::string result = std::to_string(VERSION_MAJOR) + "." + std::to_string(VERSION_MINOR) + "." +  std::to_string(VERSION_MICRO) + " clk thing: " + std::to_string(CM_CLK_CTL_SRC_TSTDBG0) + " gpio: " + std::to_string(GPIO_OFFSET) + " dma: " + std::to_string(PAGE_SIZE) + " tgbw: " + std::to_string(SK6812_STRIP_RGBW) + " importd: " + std::to_string(doMyThing(6)) + " lights: " + std::to_string(lightsTest());   
+    std::string result = std::to_string(VERSION_MAJOR) + "." + std::to_string(VERSION_MINOR) + "." +  std::to_string(VERSION_MICRO) + " clk thing: " + std::to_string(CM_CLK_CTL_SRC_TSTDBG0) + " gpio: " + std::to_string(GPIO_OFFSET) + " dma: " + std::to_string(PAGE_SIZE) + " tgbw: " + std::to_string(SK6812_STRIP_RGBW);   
     return Napi::String::New(info.Env(), result);
 }
 
