@@ -1,8 +1,6 @@
 // import native addon
-const addonGreet = require('bindings')('greet');
+const cAddonTest = require('bindings')('c_addon_test');
 
-// console.log(addonGreet.greetHello('World'));
-// console.log(addonGreet.test());
 
 let playing = false;
 var stdin = process.stdin;
@@ -17,7 +15,7 @@ stdin.resume();
 // i don't want binary, do you?
 stdin.setEncoding('utf8');
 
-let wait = 20;
+let wait = 50;
 // on any data into stdin
 stdin.on('data', function (key) {
     // ctrl-c ( end of text )
@@ -55,7 +53,7 @@ let values = flatten2dArray(Array(8).fill(0).map((_, index) => Array(32).fill(in
 
 
 function increment() {
-    addonGreet.drawStill(8, 32, 100, values);
+    cAddonTest.drawStill(8, 32, 100, values);
     values = values.map(value => (value + 1) % 12);
 };
 
@@ -83,6 +81,5 @@ function animate() {
 animate();
 
 // expose module API
-exports.hello = addonGreet.greetHello;
-exports.test = addonGreet.test;
-exports.drawStill = addonGreet.drawStill;
+exports.test = cAddonTest.test;
+exports.drawStill = cAddonTest.drawStill;

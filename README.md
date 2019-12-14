@@ -10,6 +10,8 @@ Using this repo: https://github.com/thatisuday/native-addon-example
 
 This being used to control an LED matric using this repo: https://github.com/jgarff/rpi_ws281x
 
+This is also useful for creating a TS npm package: https://medium.com/@nahush.farkande/creating-npm-modules-written-in-typescript-8d3cb4e65783 (note that this package is not ts).
+
 ## Usage
 
 Clone the repo on a pi then do the following:

@@ -4,6 +4,7 @@
         "setup": "npm install",
         "build": "rm -rf build && node-gyp configure && npm run compile",
         "compile": "node-gyp build",
+        "postinstall": "npm run build",
         "test": "node index.js"
     },
     "main": "index.js",

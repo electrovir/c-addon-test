@@ -13,7 +13,6 @@
 
 #include <napi.h>
 
-#include "greeting.h"
 extern "C" {
 #include "pcm.h"
 #include "clk.h"
@@ -25,15 +24,6 @@ extern "C" {
 }
 
 #include "ws2811.h"
-
-Napi::String greetHello(const Napi::CallbackInfo& info) {
-    Napi::Env env = info.Env();
-
-    std::string user = (std::string) info[0].ToString();
-    std::string result = helloUser( user );
-
-    return Napi::String::New(env, result);
-}
 
 Napi::String test(const Napi::CallbackInfo& info) {
     printf("%d.%d.%d\n", VERSION_MAJOR, VERSION_MINOR, VERSION_MICRO);
@@ -71,11 +61,6 @@ Napi::Number ledDrawStillImage(const Napi::CallbackInfo& info) {
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
 
     exports.Set(
-        Napi::String::New(env, "greetHello"),
-        Napi::Function::New(env, greetHello)
-    );
-    
-    exports.Set(
         Napi::String::New(env, "test"),
         Napi::Function::New(env, test)
     );
@@ -88,4 +73,4 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
     return exports;
 }
 
-NODE_API_MODULE(greet, Init)
+NODE_API_MODULE(c_addon_test, Init)
